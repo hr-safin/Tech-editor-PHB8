@@ -3,7 +3,7 @@ const text_area = document.getElementById("text-area");
 let isBold = true;
 
 boldButton.addEventListener("click", function () {
-  if (isBold === true) {
+  if (isBold) {
     text_area.style.fontWeight = "bold";
   } else if (isBold === false) {
     text_area.style.fontWeight = "normal";
@@ -32,7 +32,7 @@ const underLineButton = document.getElementById("underline");
 let isUnderline = true;
 
 underLineButton.addEventListener("click", function () {
-  if (isUnderline === true) {
+  if (isUnderline) {
     text_area.style.textDecoration = "underline";
     underLineButton.style.fontWeight = "bold";
   } else if (isUnderline === false) {
@@ -48,7 +48,7 @@ const leftAlign = document.getElementById("left");
 let isLeft = true;
 
 leftAlign.addEventListener("click", function () {
-  if (isLeft === true) {
+  if (isLeft) {
     text_area.style.textAlign = "left";
     leftAlign.style.fontWeight = "bold";
   } else if (isLeft === false) {
@@ -63,7 +63,7 @@ const centerAlign = document.getElementById("center");
 let isCenter = true;
 
 centerAlign.addEventListener("click", function () {
-  if (isCenter === true) {
+  if (isCenter) {
     text_area.style.textAlign = "center";
     centerAlign.style.fontWeight = "bold";
   } else if (isCenter === false) {
@@ -78,7 +78,7 @@ const rightAlign = document.getElementById("right");
 let isRight = true;
 
 rightAlign.addEventListener("click", function () {
-  if (isRight === true) {
+  if (isRight) {
     text_area.style.textAlign = "right";
     rightAlign.style.fontWeight = "bold";
   } else if (isRight === false) {
@@ -93,7 +93,7 @@ const upperCase = document.getElementById("upper-case");
 let isUppercase = true;
 
 upperCase.addEventListener("click", function () {
-  if (isUppercase === true) {
+  if (isUppercase) {
     text_area.style.textTransform = "uppercase";
     upperCase.style.fontWeight = "bold";
   } else if (isUppercase === false) {
