@@ -1,121 +1,116 @@
-// const colorInput =document.querySelector("input")
+const boldButton = document.getElementById("bold");
+const text_area = document.getElementById("text-area");
+let isBold = true;
 
-// colorInput.oninput = function(){
-//     document.body.style.backgroundColor = colorInput.value
-// }
+boldButton.addEventListener("click", function () {
+  if (isBold === true) {
+    text_area.style.fontWeight = "bold";
+  } else if (isBold === false) {
+    text_area.style.fontWeight = "normal";
+  }
 
+  isBold = !isBold;
+});
 
-const boldButton = document.getElementById("bold")
-const text_area = document.getElementById("text-area")
-let isBold = true
+const italic_button = document.getElementById("italic");
 
-boldButton.addEventListener("click", function(){
-    
+let isItalic = true;
+italic_button.addEventListener("click", function () {
+  if (isItalic) {
+    text_area.style.fontStyle = "italic";
+    italic_button.style.fontWeight = "bold";
+  } else if (isItalic === false) {
+    text_area.style.fontStyle = "normal";
+    italic_button.style.fontWeight = "normal";
+  }
 
-    if(isBold === true){
-        text_area.style.fontWeight = "bold"
-    }else if(isBold === false){
-        text_area.style.fontWeight = "normal"
-    }
+  isItalic = !isItalic;
+});
 
-    isBold = !isBold;
+const underLineButton = document.getElementById("underline");
 
-    
-})
+let isUnderline = true;
 
+underLineButton.addEventListener("click", function () {
+  if (isUnderline === true) {
+    text_area.style.textDecoration = "underline";
+    underLineButton.style.fontWeight = "bold";
+  } else if (isUnderline === false) {
+    text_area.style.textDecoration = "none";
+    underLineButton.style.fontWeight = "normal";
+  }
 
-const italic_button = document.getElementById("italic")
+  isUnderline = !isUnderline;
+});
 
-let isItalic = true
-italic_button.addEventListener("click", function(){
-   
+const leftAlign = document.getElementById("left");
 
-   if(isItalic){
-    text_area.style.fontStyle ="italic"
-   }else if(isItalic === false){
-    text_area.style.fontStyle ="normal"
-   }
+let isLeft = true;
 
-   isItalic = !isItalic
-})
+leftAlign.addEventListener("click", function () {
+  if (isLeft === true) {
+    text_area.style.textAlign = "left";
+    leftAlign.style.fontWeight = "bold";
+  } else if (isLeft === false) {
+    text_area.style.textAlign = "justify";
+    leftAlign.style.fontWeight = "normal";
+  }
+  isLeft = !isLeft;
+});
 
+const centerAlign = document.getElementById("center");
 
-const underLineButton = document.getElementById("underline")
+let isCenter = true;
 
-let isUnderline = true
+centerAlign.addEventListener("click", function () {
+  if (isCenter === true) {
+    text_area.style.textAlign = "center";
+    centerAlign.style.fontWeight = "bold";
+  } else if (isCenter === false) {
+    text_area.style.textAlign = "justify";
+    centerAlign.style.fontWeight = "normal";
+  }
+  isCenter = !isCenter;
+});
 
-underLineButton.addEventListener("click", function(){
-    if(isUnderline === true){
-        text_area.style.textDecoration = "underline"
-    }else if(isUnderline === false){
-        text_area.style.textDecoration = "none" 
-    }
+const rightAlign = document.getElementById("right");
 
-    isUnderline = !isUnderline
-})
+let isRight = true;
 
-const leftAlign = document.getElementById("left")
+rightAlign.addEventListener("click", function () {
+  if (isRight === true) {
+    text_area.style.textAlign = "right";
+    rightAlign.style.fontWeight = "bold";
+  } else if (isRight === false) {
+    text_area.style.textAlign = "justify";
+    rightAlign.style.fontWeight = "normal";
+  }
+  isRight = !isRight;
+});
 
-let isLeft = true
+const upperCase = document.getElementById("upper-case");
 
-leftAlign.addEventListener("click", function(){
-    if(isLeft === true){
-        text_area.style.textAlign = "left"
-    }else if(isLeft === false){
-        text_area.style.textAlign = "justify" 
-    }
-    isLeft = !isLeft
-})
+let isUppercase = true;
 
-const centerAlign = document.getElementById("center")
+upperCase.addEventListener("click", function () {
+  if (isUppercase === true) {
+    text_area.style.textTransform = "uppercase";
+    upperCase.style.fontWeight = "bold";
+  } else if (isUppercase === false) {
+    text_area.style.textTransform = "none";
+    upperCase.style.fontWeight = "normal";
+  }
+  isUppercase = !isUppercase;
+});
 
-let isCenter = true
+const fontAdjust = document.getElementById("number-input");
 
-centerAlign.addEventListener("click", function(){
-    if(isCenter === true){
-        text_area.style.textAlign = "center"
-    }else if(isCenter === false){
-        text_area.style.textAlign = "justify" 
-    }
-    isCenter = !isCenter
-})
+fontAdjust.addEventListener("input", function () {
+  text_area.style.fontSize = fontAdjust.value + "px";
+});
 
-const rightAlign = document.getElementById("right")
+const colorInput = document.querySelector("#color-id");
 
-let isRight = true
-
-rightAlign.addEventListener("click", function(){
-    if(isRight === true){
-        text_area.style.textAlign = "right"
-    }else if(isRight === false){
-        text_area.style.textAlign = "justify" 
-    }
-    isRight = !isRight
-})
-
-const upperCase = document.getElementById("upper-case")
-
-let isUppercase = true
-
-upperCase.addEventListener("click", function(){
-    if(isUppercase === true){
-        text_area.style.textTransform = "uppercase"
-    }else if(isUppercase === false){
-        text_area.style.textTransform = "none" 
-    }
-    isUppercase = !isUppercase
-})
-
-
-const fontAdjust = document.getElementById("number-input")
-
-fontAdjust.addEventListener("input", function(){
-    text_area.style.fontSize = fontAdjust.value + "px"
-})
-
-
-const colorInput =document.querySelector("#color-id")
-
-colorInput.addEventListener("input", function(){
-    text_area.style.color = colorInput.value
-})
+colorInput.addEventListener("input", function () {
+  text_area.style.color = colorInput.value;
+});

@@ -21,40 +21,82 @@
     />
 
     <style>
-        .font-work{
-            font-family: 'Work Sans', sans-serif;
-        }
+      .font-work {
+        font-family: "Work Sans", sans-serif;
+      }
     </style>
   </head>
   <body class="font-work">
-    <section class="bg-blue-400 lg:mx-40 my-16 lg:my-12 p-8 lg:p-10 rounded-lg">
-        <h2 class="font-semibold text-4xl text-center" >Tech Edit</h2>
-        <div class="border-2 border-gray-600 lg:mx-20 rounded-lg p-3 my-8 bg-blue-300">
-            <div class="flex flex-col lg:flex lg:flex-row  justify-center lg:justify-between items-center lg:ml-20   ">
-                <div class="flex">
-                    <h2 id="bold" class="font-bold text-xl mr-4 hover:bg-blue-700 p-2 cursor-pointer rounded-md">B</h2>
-                    <h2 id="italic" class=" italic font-bold text-xl mr-4 hover:bg-blue-700 p-2 cursor-pointer rounded-md">I</h2>
-                    <h2 id="underline" class=" underline font-bold text-xl hover:bg-blue-700 p-2 cursor-pointer rounded-md">U</h2>
-                </div>
-                <div class="flex">
-                    <i id="left" class="fa-solid fa-align-left font-bold text-xl hover:bg-blue-700 p-2 cursor-pointer rounded-md mr-4"></i>
-                    <i id="center" class="fa-solid fa-align-center font-bold text-xl hover:bg-blue-700 p-2 cursor-pointer rounded-md mr-4"></i>
-                    <i id="right" class="fa-solid fa-align-right font-bold text-xl hover:bg-blue-700 p-2 cursor-pointer rounded-md"></i>
-                </div>
-                <div class="flex lg:ml-0 ml-[84px] lg:mt-0 mt-4 items-center">
-                    <input value="14" class="w-[20%] mr-4 px-2 font-bold rounded-lg"  id="number-input" type="number" name="" id="">
-                    <h2 id="upper-case" class="font-bold text-xl mr-5 cursor-pointer">Aa</h2>
-                    <input id="color-id" type="color" name="" id="">
-                </div>
-                
-            </div>
-            <div class=" border lg:flex hidden border-gray-600 ml-[85px] mt-5 mr-[140px]"></div>
-            <div class="mt-6 pb-10">
-                <textarea id="text-area" class="px-5 py-3 mx-auto w-[93%] lg:w-[76%] h-[280px]  lg:ml-[85px] ml-[10px] rounded-lg" name="" id=""></textarea>
-            </div>
+    <section class="lg:mx-40 my-16 lg:my-12 p-8 lg:p-10 rounded-lg">
+      <h2 class="font-semibold text-4xl text-center">Tech Editor</h2>
+      <div
+        class="border border-gray-400 lg:mx-20 rounded-lg p-3 my-8 bg-gray-100"
+      >
+        <div
+          class="flex flex-col lg:flex lg:flex-row justify-center lg:justify-between items-center lg:ml-20"
+        >
+          <div class="flex">
+            <h2
+              id="bold"
+              class=" text-xl mr-4 hover:bg-gray-300 px-3 py-2 cursor-pointer rounded-md"
+            >
+              B
+            </h2>
+            <h2
+              id="italic"
+              class="italic  text-xl mr-4 hover:bg-gray-300 px-3 py-2  cursor-pointer rounded-md"
+            >
+              I
+            </h2>
+            <h2
+              id="underline"
+              class="underline  text-xl hover:bg-gray-300 px-3 py-2 cursor-pointer rounded-md"
+            >
+              U
+            </h2>
+          </div>
+          <div class="flex">
+            <i
+              id="left"
+              class="fa-solid fa-align-left  text-xl hover:bg-gray-300 px-3 py-2 cursor-pointer rounded-md mr-4"
+            ></i>
+            <i
+              id="center"
+              class="fa-solid fa-align-center  text-xl hover:bg-gray-300 px-3 py-2 cursor-pointer rounded-md mr-4"
+            ></i>
+            <i
+              id="right"
+              class="fa-solid fa-align-right font-bold text-xl hover:bg-gray-300 px-3 py-2  cursor-pointer rounded-md"
+            ></i>
+          </div>
+          <div class="flex lg:ml-0 ml-[84px] lg:mt-0 mt-4 items-center">
+            <input
+              value="16"
+              class="w-[20%] mr-4 px-2 font-bold rounded-lg"
+              id="number-input"
+              type="number"
+              name=""
+              id=""
+            />
+            <h2 id="upper-case" class="font-bold text-xl mr-5 cursor-pointer">
+              Aa
+            </h2>
+            <input id="color-id" type="color" name="" id="" />
+          </div>
         </div>
-        
-        
+        <div
+          class="border lg:flex hidden border-gray-300 ml-[85px] mt-5 mr-[82px]"
+        ></div>
+        <div class="mt-6 pb-10">
+          <textarea
+            id="text-area"
+            class="px-5 focus:outline-none py-3 text-[16px] mx-auto w-[93%] lg:w-[82%] h-[280px] lg:ml-[85px] ml-[10px] rounded-lg"
+            name=""
+            id=""
+            placeholder="type here..."
+          ></textarea>
+        </div>
+      </div>
     </section>
     <script src="script.js"></script>
   </body>
