@@ -5,8 +5,10 @@ let isBold = true;
 boldButton.addEventListener("click", function () {
   if (isBold) {
     text_area.style.fontWeight = "bold";
+    boldButton.style.fontWeight = "bold";
   } else if (isBold === false) {
     text_area.style.fontWeight = "normal";
+    boldButton.style.fontWeight = "normal";
   }
 
   isBold = !isBold;
@@ -87,6 +89,13 @@ rightAlign.addEventListener("click", function () {
   }
   isRight = !isRight;
 });
+
+const fontFamily = document.getElementById("font-family")
+
+fontFamily.addEventListener("change", function(){
+  let selectedField = fontFamily.value
+  text_area.style.fontFamily = selectedField
+})
 
 const upperCase = document.getElementById("upper-case");
 
