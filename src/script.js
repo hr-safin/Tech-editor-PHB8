@@ -152,10 +152,14 @@ function makeElementDraggable(element) {
     isDragging = true;
     offsetX = e.clientX - element.getBoundingClientRect().left;
     offsetY = e.clientY - element.getBoundingClientRect().top;
+
+    // Bring the element to the front
+    element.style.zIndex = "1000";
   });
 
   document.addEventListener("mousemove", function (e) {
     if (isDragging) {
+      element.style.position = "absolute";
       element.style.left = e.clientX - offsetX + "px";
       element.style.top = e.clientY - offsetY + "px";
     }
@@ -163,9 +167,11 @@ function makeElementDraggable(element) {
 
   document.addEventListener("mouseup", function () {
     isDragging = false;
+    
+    // Reset the z-index after dragging
+    element.style.zIndex = "auto";
   });
 }
-
 function makeElementResizable(element) {
   let isResizing = false;
   let currentX, currentY, initialWidth, initialHeight;
@@ -200,6 +206,72 @@ function makeElementResizable(element) {
     isResizing = false;
   });
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const editorState = {
+    undoStack: [],
+    redoStack: [],
+  };
+
+  function saveState() {
+    const textArea = document.getElementById("text-area-container");
+    const currentState = textArea.innerHTML;
+    editorState.undoStack.push(currentState);
+    updateUndoRedoButtons();
+  }
+
+  function updateUndoRedoButtons() {
+    const undoButton = document.getElementById("undo");
+    const redoButton = document.getElementById("redo");
+
+    undoButton.disabled = editorState.undoStack.length === 0;
+    redoButton.disabled = editorState.redoStack.length === 0;
+  }
+
+  function undo() {
+    if (editorState.undoStack.length > 0) {
+      const currentState = document.getElementById("text-area-container").innerHTML;
+      editorState.redoStack.push(currentState);
+
+      const prevState = editorState.undoStack.pop();
+      document.getElementById("text-area-container").innerHTML = prevState;
+
+      updateUndoRedoButtons();
+    }
+  }
+
+  function redo() {
+    if (editorState.redoStack.length > 0) {
+      const currentState = document.getElementById("text-area-container").innerHTML;
+      editorState.undoStack.push(currentState);
+
+      const nextState = editorState.redoStack.pop();
+      document.getElementById("text-area-container").innerHTML = nextState;
+
+      updateUndoRedoButtons();
+    }
+  }
+
+  document.getElementById("addText").addEventListener("click", function () {
+    let textArea1 = document.createElement("div");
+    textArea1.contentEditable = true;
+    textArea1.classList.add("draggable");
+
+    document.getElementById("text-area-container").appendChild(textArea1);
+
+    saveState();
+  });
+
+  document.getElementById("undo").addEventListener("click", undo);
+
+  document.getElementById("redo").addEventListener("click", redo);
+
+  document.getElementById("text-area-container").addEventListener("input", function () {
+    saveState();
+  });
+});
+
 
 
 
