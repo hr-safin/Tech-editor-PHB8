@@ -124,6 +124,7 @@ colorInput.addEventListener("input", function () {
   text_area.style.color = colorInput.value;
 });
 
+
 document.getElementById("addText").addEventListener("click", function () {
   let textArea1 = document.createElement("div");
   textArea1.contentEditable = true;
@@ -155,6 +156,7 @@ function makeElementDraggable(element) {
 
   document.addEventListener("mousemove", function (e) {
     if (isDragging) {
+      element.style.position = "absolute"; // Ensure the element is positioned absolutely
       element.style.left = e.clientX - offsetX + "px";
       element.style.top = e.clientY - offsetY + "px";
     }
