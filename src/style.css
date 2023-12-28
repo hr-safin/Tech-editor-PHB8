@@ -43,8 +43,8 @@ body {
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
   padding: 0.75rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -54,9 +54,11 @@ body {
 /* Toolbar container styling */
 .toolbar-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-left: 40px;
+  width: 1300px;
+  margin: auto;
+  
 }
 
 
@@ -71,10 +73,33 @@ body {
 }
 #addText.bold-1{
   font-weight: normal;
-  font-size: 20px;
+  font-size: 16px;
   margin-right: 15px;
   cursor: pointer;
   padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  border-radius: 5px;
+  border: 1px solid rgb(118, 116, 116);
+}
+#undo.undo{
+  font-weight: normal;
+  font-size: 16px;
+  margin-right: 15px;
+  cursor: pointer;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 5px;
+  padding-top: 2px;
+  border: 1px solid rgb(118, 116, 116);
+}
+#redo.redo{
+  font-weight: normal;
+  font-size: 16px;
+  margin-right: 15px;
+  cursor: pointer;
+  padding-left: 8px;
+  padding-top: 2px;
   padding-right: 8px;
   border-radius: 5px;
   border: 1px solid rgb(118, 116, 116);
@@ -170,8 +195,8 @@ body {
 .toolber-1 {
   font-weight: normal;
   display: flex;
-  margin-left: 94px;
-  margin-right: 6px;
+  margin-left: 30px;
+  margin-right: 2px;
 }
 
 /* Toolbar 2 styling */
@@ -185,7 +210,7 @@ body {
 .toolber-3 {
   display: flex;
   margin-right: 1rem;
-  margin-left: 70px;
+  margin-left: 0px;
   margin-top: 1rem;
   align-items: center;
 }

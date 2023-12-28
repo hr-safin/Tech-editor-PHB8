@@ -156,7 +156,6 @@ function makeElementDraggable(element) {
 
   document.addEventListener("mousemove", function (e) {
     if (isDragging) {
-      element.style.position = "absolute"; // Ensure the element is positioned absolutely
       element.style.left = e.clientX - offsetX + "px";
       element.style.top = e.clientY - offsetY + "px";
     }
