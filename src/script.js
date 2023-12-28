@@ -1,5 +1,5 @@
 const boldButton = document.getElementById("bold");
-const text_area = document.getElementById("text-area");
+const text_area = document.getElementById("text-area-container");
 let isBold = true;
 
 boldButton.addEventListener("click", function () {
@@ -123,3 +123,84 @@ const colorInput = document.querySelector("#color-id");
 colorInput.addEventListener("input", function () {
   text_area.style.color = colorInput.value;
 });
+
+document.getElementById("addText").addEventListener("click", function () {
+  let textArea1 = document.createElement("div");
+  textArea1.contentEditable = true;
+  textArea1.style.width = "10%";
+  textArea1.style.height = "50px"; // Set an initial height
+  textArea1.style.resize = "both";
+  textArea1.style.paddingLeft = "2px";
+  textArea1.style.paddingTop = "2px";
+  textArea1.style.overflow = "auto";
+  textArea1.style.border = "1px solid black";
+  textArea1.classList.add("draggable");
+
+  document.getElementById("text-area-container").appendChild(textArea1);
+
+  // Add drag and resize functionality using pure JavaScript
+  makeElementDraggable(textArea1);
+  makeElementResizable(textArea1);
+});
+
+function makeElementDraggable(element) {
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  element.addEventListener("mousedown", function (e) {
+    isDragging = true;
+    offsetX = e.clientX - element.getBoundingClientRect().left;
+    offsetY = e.clientY - element.getBoundingClientRect().top;
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (isDragging) {
+      element.style.left = e.clientX - offsetX + "px";
+      element.style.top = e.clientY - offsetY + "px";
+    }
+  });
+
+  document.addEventListener("mouseup", function () {
+    isDragging = false;
+  });
+}
+
+function makeElementResizable(element) {
+  let isResizing = false;
+  let currentX, currentY, initialWidth, initialHeight;
+
+  const handle = document.createElement("div");
+  handle.className = "resize-handle";
+  element.appendChild(handle);
+
+  handle.addEventListener("mousedown", function (e) {
+    isResizing = true;
+    currentX = e.clientX;
+    currentY = e.clientY;
+    initialWidth = parseFloat(
+      getComputedStyle(element, null).getPropertyValue("width")
+    );
+    initialHeight = parseFloat(
+      getComputedStyle(element, null).getPropertyValue("height")
+    );
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (isResizing) {
+      const dx = e.clientX - currentX;
+      const dy = e.clientY - currentY;
+
+      element.style.width = initialWidth + dx + "px";
+      element.style.height = initialHeight + dy + "px";
+    }
+  });
+
+  document.addEventListener("mouseup", function () {
+    isResizing = false;
+  });
+}
+
+
+
+
+
